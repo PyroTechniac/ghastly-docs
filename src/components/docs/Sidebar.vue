@@ -89,14 +89,12 @@ export default {
   },
   computed: {
     typedefs() {
-      return Object.values(this.docs.typedefs).filter(
-        ({ access }) => this.showPrivate || access !== "private"
-      );
+      return Object.values(this.docs.typedefs)
+        .filter(({ access }) => this.showPrivate || access !== "private");
     },
     classes() {
-      return Object.values(this.docs.classes).filter(
-        ({ access }) => this.showPrivate || access !== "private"
-      );
+      return Object.values(this.docs.classes)
+        .filter(({ access }) => this.showPrivate || access !== "private");
     },
     custom() {
       return Object.keys(this.docs.custom)
@@ -113,17 +111,10 @@ export default {
     },
     $route(to) {
       if (this.$parent.visible) this.$parent.visible = false;
-      if (
-        !to.query.scrollTo &&
-        (window.pageYOffset || document.documentElement.scrollTop) > 300
-      ) {
+      if (!to.query.scrollTo && (window.pageYOffset || document.documentElement.scrollTop) > 300) {
         window.scrollTo(0, 90);
       }
-      this.activeTab = this.$route.params.file
-        ? 0
-        : this.$route.params.class
-          ? 1
-          : 2;
+      this.activeTab = this.$route.params.file ? 0 : this.$route.params.class ? 0 : 1;
     }
   },
   methods: {
