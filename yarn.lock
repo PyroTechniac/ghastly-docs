@@ -2727,7 +2727,7 @@ escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
 
 eslint-config-pyro@pyrotechniac/pyro-lint:
   version "0.0.1"
-  resolved "https://codeload.github.com/pyrotechniac/pyro-lint/tar.gz/5581dff1c753a506bbd044f3732f6aaa6c08a49f"
+  resolved "https://codeload.github.com/pyrotechniac/pyro-lint/tar.gz/c9a3213368a1d690641f1ab48aafbe315665aabc"
 
 eslint-formatter-pretty@^2.0.0:
   version "2.1.1"
