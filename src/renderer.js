@@ -4,17 +4,17 @@ import highlightjs from 'highlight.js';
 const renderer = new Renderer();
 
 renderer.code = (code, language) => {
-    const validLang = !!(language && highlightjs.getLanguage(language));
+  const validLang = !!(language && highlightjs.getLanguage(language));
 
-    const highlighted = validLang ? highlightjs.highlight(language, code).value : code;
+  const highlighted = validLang ? highlightjs.highlight(language, code).value : code;
 
-    return `<pre><code class="hljs ${language}">${highlighted}</code></pre>`;
+  return `<pre><code class="hljs ${language}">${highlighted}</code></pre>`;
 };
 
 renderer.heading = (text, level) => {
-    const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
+  const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
 
-    return `
+  return `
 		<h${level} id="${escapedText}">
 			${level < 3 ? `<a href="${window.location.toString().split('?')[0]}?scrollTo=${escapedText}">#</a> ` : ''}${text}
 		</h${level}>

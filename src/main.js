@@ -20,15 +20,15 @@ Vue.use(Buefy, { defaultIconPack: 'fa' });
 marked.setOptions({ renderer });
 
 Vue.filter('marked', text => {
-    if (!text) text = '**Documentation missing.**';
-    else text = text.replace(/<(info|warning|danger)>([\s\S]+)<\/\1>/gi, '<div class="notification is-$1">$2</div>');
-    return marked(text);
+  if (!text) text = '**Documentation missing.**';
+  else text = text.replace(/<(info|warning|danger)>([\s\S]+)<\/\1>/gi, '<div class="notification is-$1">$2</div>');
+  return marked(text);
 });
 
 new Vue({
-    el: '#app',
-    router,
-    render(el) {
-        return el(App);
-    }
+  el: '#app',
+  router,
+  render(el) {
+    return el(App);
+  }
 });

@@ -55,11 +55,11 @@
 
 <script>
 export default {
-    name: 'AppNavbar',
-    computed: {
-        invite() {
-            return this.$parent.invite;
-        }
+  name: 'AppNavbar',
+  computed: {
+    invite() {
+      return this.$parent.invite;
     }
+  }
 };
 </script>

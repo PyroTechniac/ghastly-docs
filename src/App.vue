@@ -11,30 +11,30 @@ import AppNavbar from './components/AppNavbar.vue';
 import AppFooter from './components/AppFooter.vue';
 
 export default {
-    name: 'App',
-    components: {
-        AppNavbar,
-        AppFooter
-    },
-    data() {
-        return {
-            dark: JSON.parse(localStorage.getItem('dark'))
-        };
-    },
-    methods: {
-        invite() {
-            const popup = window.open(
-                'about:blank',
-                '',
-                'toolbar=no,scrollbar=yes,resizable=yes,width=498,height=666'
-            );
-            fetch('https://api.entangled.me/invite')
-                .then(res => res.json())
-                .then(({ invite }) => {
-                    popup.location = invite;
-                });
-        }
+  name: 'App',
+  components: {
+    AppNavbar,
+    AppFooter
+  },
+  data() {
+    return {
+      dark: JSON.parse(localStorage.getItem('dark'))
+    };
+  },
+  methods: {
+    invite() {
+      const popup = window.open(
+        'about:blank',
+        '',
+        'toolbar=no,scrollbar=yes,resizable=yes,width=498,height=666'
+      );
+      fetch('https://api.entangled.me/invite')
+        .then(res => res.json())
+        .then(({ invite }) => {
+          popup.location = invite;
+        });
     }
+  }
 };
 </script>
 

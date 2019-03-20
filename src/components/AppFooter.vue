@@ -52,18 +52,18 @@
 import Stats from './Stats.vue';
 
 export default {
-    name: 'AppFooter',
-    components: { Stats },
-    computed: {
-        dark() {
-            return this.$parent.dark;
-        }
-    },
-    methods: {
-        toggleDark() {
-            this.$parent.dark = !this.$parent.dark;
-            localStorage.setItem('dark', String(this.$parent.dark));
-        }
+  name: 'AppFooter',
+  components: { Stats },
+  computed: {
+    dark() {
+      return this.$parent.dark;
     }
+  },
+  methods: {
+    toggleDark() {
+      this.$parent.dark = !this.$parent.dark;
+      localStorage.setItem('dark', String(this.$parent.dark));
+    }
+  }
 };
 </script>
