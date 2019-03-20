@@ -1,0 +1,84 @@
+<template>
+  <nav class="column is-mobile">
+    <div class="column has-text-centered">
+      <div>
+        <p class="heading">
+          Downloads
+        </p>
+        <p class="title is-size-5">
+          {{ downloads }}
+        </p>
+      </div>
+    </div>
+    <div class="column has-text-centered">
+      <div>
+        <p class="heading">
+          Stars
+        </p>
+        <p class="title is-size-5">
+          {{ stars }}
+        </p>
+      </div>
+    </div>
+    <div class="column has-text-centered">
+      <div>
+        <p class="heading">
+          Contributors
+        </p>
+        <p class="title is-size-5">
+          {{ contributors }}
+        </p>
+      </div>
+    </div>
+  </nav>
+</template>
+
+<script>
+const noop = () => {};
+
+const json = res => res.json();
+export default {
+    name: 'Stats',
+    data() {
+        return {
+            downloads: '1000+',
+            stars: '20+',
+            contributors: '2+',
+            fetching: false
+        };
+    },
+    beforeMount() {
+        this.fetch();
+    },
+    methods: {
+        async fetch() {
+            if (this.fetching) return;
+            this.fetching = true;
+
+            const [downloads, stars, contributors] = await Promise.all([
+                fetch(
+                    'https://api.npmjs.org/downloads/range/2013-08-21:2100-08-21/discord-entangled'
+                )
+                    .then(json)
+                    .catch(noop),
+                fetch('https://api.github.com/repos/pyrotechniac/discord-entangled')
+                    .then(json)
+                    .catch(noop),
+                fetch(
+                    'https://api.github.com/repos/pyrotechniac/discord-entangled/stats/contributors'
+                )
+                    .then(json)
+                    .catch(noop)
+            ]);
+
+            if (downloads) {
+                this.downloads = 0;
+                for (const item of downloads.downloads) {this.downloads += item.downloads;}
+                this.downloads = this.downloads.toLocaleString();
+            }
+            if (stars) this.stars = stars.stargazers_count.toLocaleString();
+            if (contributors) {this.contributors = contributors.length.toLocaleString();}
+        }
+    }
+};
+</script>
