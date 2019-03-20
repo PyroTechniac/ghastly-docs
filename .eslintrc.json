@@ -9,6 +9,7 @@
         "quotes": [
             "error",
             "double"
-        ]
+        ],
+        "require-prop-types": "off"
     }
 }
