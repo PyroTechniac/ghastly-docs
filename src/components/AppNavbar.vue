@@ -55,7 +55,7 @@
 
 <script>
 export default {
-  name: 'AppNavbar',
+  name: "AppNavbar",
   computed: {
     invite() {
       return this.$parent.invite;

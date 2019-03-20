@@ -30,8 +30,8 @@
 
 <script>
 export default {
-  name: 'DocsLoader',
-  props: ['source', 'tag'],
+  name: "DocsLoader",
+  props: ["source", "tag"],
   data() {
     return {
       docs: null,
@@ -78,7 +78,7 @@ export default {
         .fetchDocs(this.tag)
         .then(docs => {
           if (this.source !== startSource || this.tag !== startTag) return;
-          console.log('Loading', startSource, startTag);
+          console.log("Loading", startSource, startTag);
 
           docs.classes.sort((a, b) => a.name.localeCompare(b.name));
           docs.typedefs.sort((a, b) => a.name.localeCompare(b.name));
@@ -91,51 +91,51 @@ export default {
 
           docs.links = {
             this:
-              'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this',
+              "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this",
             string:
-              'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String',
+              "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
             number:
-              'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number',
+              "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
             boolean:
-              'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean',
+              "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
             Symbol:
-              'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol',
+              "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
             symbol:
-              'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol',
+              "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
             void:
-              'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined',
+              "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
             Object:
-              'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object',
+              "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
             Function:
-              'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function',
+              "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
             function:
-              'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function',
+              "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
             Array:
-              'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array',
+              "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
             Set:
-              'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set',
+              "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
             Map:
-              'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map',
+              "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
             Date:
-              'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date',
+              "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
             RegExp:
-              'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp',
+              "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
             Promise:
-              'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise',
+              "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
             Error:
-              'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error',
+              "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
             EventEmitter:
-              'https://nodejs.org/dist/latest/docs/api/events.html#events_class_eventemitter',
+              "https://nodejs.org/dist/latest/docs/api/events.html#events_class_eventemitter",
             Timeout:
-              'https://nodejs.org/dist/latest/docs/api/timers.html#timers_class_timeout',
+              "https://nodejs.org/dist/latest/docs/api/timers.html#timers_class_timeout",
             Buffer:
-              'https://nodejs.org/dist/latest/docs/api/buffer.html#buffer_class_buffer',
+              "https://nodejs.org/dist/latest/docs/api/buffer.html#buffer_class_buffer",
             ReadableStream:
-              'https://nodejs.org/dist/latest/docs/api/stream.html#stream_class_stream_readable',
+              "https://nodejs.org/dist/latest/docs/api/stream.html#stream_class_stream_readable",
             ChildProcess:
-              'https://nodejs.org/dist/latest/docs/api/child_process.html#child_process_class_childprocess',
+              "https://nodejs.org/dist/latest/docs/api/child_process.html#child_process_class_childprocess",
             Iterator:
-              'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterator_protocol'
+              "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterator_protocol"
           };
 
           docs.externals = docs.externals || [];
@@ -144,22 +144,22 @@ export default {
           for (const xx of docs.externals) {
             docs.links[`external:${xx.name}`] = xx.see[0].replace(
               /\{@link\s+(.+?)\s*\}/i,
-              '$1'
+              "$1"
             );
             docs.links[xx.name] = xx.see[0].replace(
               /\{@link\s+(.+?)\s*\}/i,
-              '$1'
+              "$1"
             );
           }
           for (const cl of docs.classes) {
             docs.links[cl.name] = {
-              name: 'docs-class',
+              name: "docs-class",
               params: { class: cl.name }
             };
           }
           for (const typ of docs.typedefs) {
             docs.links[typ.name] = {
-              name: 'docs-typedef',
+              name: "docs-typedef",
               params: { typedef: typ.name }
             };
           }
@@ -167,7 +167,7 @@ export default {
             // eslint-disable-next-line
             for (const fid in docs.custom[cid].files)
               docs.links[fid] = {
-                name: 'docs-file',
+                name: "docs-file",
                 params: { category: cid, file: fid }
               };
           }
@@ -176,10 +176,10 @@ export default {
           docs.tag = this.tag;
           this.docs = docs;
           this.loadingTag = null;
-          console.log('Finished loading', startSource, startTag);
+          console.log("Finished loading", startSource, startTag);
         })
         .catch(err => {
-          console.error('Error while loading', startSource, startTag, err);
+          console.error("Error while loading", startSource, startTag, err);
           this.error = err;
           this.loadingTag = null;
           this.warning();
@@ -187,10 +187,10 @@ export default {
     },
     warning() {
       this.$snackbar.open({
-        message: 'Couldn\'t load the documentation data.',
-        type: 'is-danger',
-        position: 'is-top',
-        actionText: 'Retry',
+        message: "Couldn't load the documentation data.",
+        type: "is-danger",
+        position: "is-top",
+        actionText: "Retry",
         duration: 10000,
         queue: false,
         onAction: () => {
@@ -206,8 +206,8 @@ export default {
           );
           if (!el) el = document.getElementById(this.$route.query.scrollTo);
           if (!el) return;
-          el.setAttribute('data-scrolled', true);
-          setTimeout(() => el.setAttribute('data-scrolled', false), 1000);
+          el.setAttribute("data-scrolled", true);
+          setTimeout(() => el.setAttribute("data-scrolled", false), 1000);
           el.scrollIntoView(true);
           window.scrollBy(0, -10);
         };

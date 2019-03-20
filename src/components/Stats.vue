@@ -40,12 +40,12 @@ const noop = () => {
 
 const json = res => res.json();
 export default {
-  name: 'Stats',
+  name: "Stats",
   data() {
     return {
-      downloads: '1000+',
-      stars: '20+',
-      contributors: '2+',
+      downloads: "1000+",
+      stars: "20+",
+      contributors: "2+",
       fetching: false
     };
   },
@@ -59,15 +59,15 @@ export default {
 
       const [downloads, stars, contributors] = await Promise.all([
         fetch(
-          'https://api.npmjs.org/downloads/range/2013-08-21:2100-08-21/discord-entangled'
+          "https://api.npmjs.org/downloads/range/2013-08-21:2100-08-21/discord-entangled"
         )
           .then(json)
           .catch(noop),
-        fetch('https://api.github.com/repos/pyrotechniac/discord-entangled')
+        fetch("https://api.github.com/repos/pyrotechniac/discord-entangled")
           .then(json)
           .catch(noop),
         fetch(
-          'https://api.github.com/repos/pyrotechniac/discord-entangled/stats/contributors'
+          "https://api.github.com/repos/pyrotechniac/discord-entangled/stats/contributors"
         )
           .then(json)
           .catch(noop)

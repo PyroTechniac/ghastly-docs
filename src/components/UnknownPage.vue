@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'UnknownPage',
-  props: ['type']
+  name: "UnknownPage",
+  props: ["type"]
 };
 </script>

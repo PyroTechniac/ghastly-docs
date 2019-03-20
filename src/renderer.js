@@ -1,5 +1,5 @@
-import { Renderer } from 'marked';
-import highlightjs from 'highlight.js';
+import { Renderer } from "marked";
+import highlightjs from "highlight.js";
 
 const renderer = new Renderer();
 
@@ -12,11 +12,11 @@ renderer.code = (code, language) => {
 };
 
 renderer.heading = (text, level) => {
-  const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
+  const escapedText = text.toLowerCase().replace(/[^\w]+/g, "-");
 
   return `
 		<h${level} id="${escapedText}">
-			${level < 3 ? `<a href="${window.location.toString().split('?')[0]}?scrollTo=${escapedText}">#</a> ` : ''}${text}
+			${level < 3 ? `<a href="${window.location.toString().split("?")[0]}?scrollTo=${escapedText}">#</a> ` : ""}${text}
 		</h${level}>
 	`;
 };

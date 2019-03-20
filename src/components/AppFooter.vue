@@ -49,10 +49,10 @@
 </template>
 
 <script>
-import Stats from './Stats.vue';
+import Stats from "./Stats.vue";
 
 export default {
-  name: 'AppFooter',
+  name: "AppFooter",
   components: { Stats },
   computed: {
     dark() {
@@ -62,7 +62,7 @@ export default {
   methods: {
     toggleDark() {
       this.$parent.dark = !this.$parent.dark;
-      localStorage.setItem('dark', String(this.$parent.dark));
+      localStorage.setItem("dark", String(this.$parent.dark));
     }
   }
 };
