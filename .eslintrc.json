@@ -1,3 +1,6 @@
 {
-    "extends": "pyro/vue"
+    "extends": "pyro/vue",
+    "rules": {
+        "func-style": "off"
+    }
 }
