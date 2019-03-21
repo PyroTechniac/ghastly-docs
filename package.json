@@ -9,7 +9,8 @@
         "test:lint": "eslint --ext .js,.vue src",
         "lint": "yarn test:lint --fix",
         "build": "poi --prod",
-        "deploy": "yarn lint && yarn build && firebase deploy"
+        "deploy": "yarn lint && yarn build && firebase deploy",
+        "setup": "firebase login"
     },
     "dependencies": {
         "buefy": "^0.7.3",
