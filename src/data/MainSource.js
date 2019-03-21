@@ -8,7 +8,7 @@ export default new DocsSource({
   global: "Entangled",
   repo: "PyroTechniac/discord-entangled",
   defaultTag: "master",
-  defaultFile: { category: "classes", id: "EntangledClient" },
+  defaultFile: { category: "class", id: "EntangledClient" },
   branchFilter: branch => !branchBlacklist.has(branch) && !branch.startsWith("dependabot"),
   tagFilter: tag => semver.gte(tag, "0.0.1")
 });
