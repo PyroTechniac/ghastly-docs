@@ -84,7 +84,7 @@ export default {
   data() {
     return {
       showPrivate: false,
-      activeTab: this.$route.params.file ? 0 : this.$route.params.class ? 1 : 2
+      activeTab: this.$route.params.file ? 0 : this.$route.params.class ? 0 : 1
     };
   },
   computed: {
