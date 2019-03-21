@@ -8,7 +8,12 @@
             <router-link
               class="navbar-item button is-info title is-5 is-marginless"
               to="/"
-            />
+            >
+              <img
+                src="../../static/entangled.jpg"
+                alt="Entangled"
+              >&nbsp;Entangled
+            </router-link>
           </div>
         </div>
 
