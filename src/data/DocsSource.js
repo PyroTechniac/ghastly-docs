@@ -42,6 +42,6 @@ export default class DocsSource {
     }
   }
   fetchDocs(tag) {
-    return fetch(`https://raw.githubusercontent.com/${this.repo}/master/docs.json`).then(json);
+    return fetch(`https://raw.githubusercontent.com/${this.repo}/master/docs/docs.json`).then(json);
   }
 }
