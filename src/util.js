@@ -1,7 +1,7 @@
 import { resolve as resolveURL } from "url";
 
 export function sourceURL(url, tag, path, file, line) {
-  return resolveURL(url, `${tag}/path${file ? `/${file}` : ""}${line ? `#L${line}` : ""}`);
+  return resolveURL(url, `${tag}/${path}${file ? `/${file}` : ""}${line ? `#L${line}` : ""}`);
 }
 
 export function parseLink(link, text, docs) {
