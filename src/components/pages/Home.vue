@@ -9,7 +9,7 @@
             <h5>
               <strong>Install Master</strong>
             </h5>
-            <pre v-highlightjs><code class="bash">npm install pyrotechniac/ghastly</code></pre>
+            <pre v-highlightjs><code class="bash">npm install pyrotechniac/thread</code></pre>
           </article>
         </div>
       </div>

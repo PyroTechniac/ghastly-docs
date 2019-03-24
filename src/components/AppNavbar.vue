@@ -9,7 +9,7 @@
               class="navbar-item button is-info title is-5 is-marginless"
               to="/"
             >
-              &nbsp;Ghastly
+              &nbsp;Thread
             </router-link>
           </div>
         </div>
@@ -40,7 +40,7 @@
           </div>
           <div class="level-item">
             <a
-              :href="`https://github.com/PyroTechniac/${this.$route.params.source || 'ghastly'}/tree/${this.$route.params.tag || 'master'}`"
+              :href="`https://github.com/PyroTechniac/${this.$route.params.source || 'spooky'}/tree/${this.$route.params.tag || 'master'}`"
               class="navbar-item button is-info is-5 is-marginless"
             >
               <span class="icon">
