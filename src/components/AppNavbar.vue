@@ -9,10 +9,7 @@
               class="navbar-item button is-info title is-5 is-marginless"
               to="/"
             >
-              <img
-                src="../../static/entangled.jpg"
-                alt="Entangled"
-              >&nbsp;Entangled
+              &nbsp;Ghastly
             </router-link>
           </div>
         </div>
@@ -43,7 +40,7 @@
           </div>
           <div class="level-item">
             <a
-              :href="`https://github.com/PyroTechniac/${this.$route.params.source || 'discord-entangled'}/tree/${this.$route.params.tag || 'master'}`"
+              :href="`https://github.com/PyroTechniac/${this.$route.params.source || 'ghastly'}/tree/${this.$route.params.tag || 'master'}`"
               class="navbar-item button is-info is-5 is-marginless"
             >
               <span class="icon">

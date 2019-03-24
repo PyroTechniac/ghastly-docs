@@ -59,11 +59,11 @@ export default {
 
       const [downloads, stars, contributors] = await Promise.all([
         0,
-        fetch("https://api.github.com/repos/pyrotechniac/discord-entangled")
+        fetch("https://api.github.com/repos/pyrotechniac/ghastly")
           .then(json)
           .catch(noop),
         fetch(
-          "https://api.github.com/repos/pyrotechniac/discord-entangled/stats/contributors"
+          "https://api.github.com/repos/pyrotechniac/ghastly/stats/contributors"
         )
           .then(json)
           .catch(noop)
